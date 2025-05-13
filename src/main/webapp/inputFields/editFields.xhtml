@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>
+        <h:outputText value="Input fields" />
+    </title>
+    <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+</h:head>
+<h:body>
+    <h2>
+        <h:outputText value="Edit input fields" />
+    </h2>
+    <h:form id="form">
+        <div class="ui-fluid grid">
+            <div class="field col-12 md:col-6">
+                <p:outputLabel for="@next" value="Text" />
+                <p:inputText id="text" value="#{inputFieldsdataBean.text}" />
+            </div>
+            <div class="field col-12 md:col-6">
+                <p:outputLabel for="@next" value="Number" />
+                <p:inputNumber id="number" value="#{inputFieldsdataBean.number}" />
+            </div>
+            <div class="field col-12 md:col-6">
+                <p:outputLabel for="@next" value="Password" />
+                <p:password id="password" value="#{inputFieldsdataBean.password}" />
+            </div>
+            <div class="field col-12 md:col-6">
+                <p:outputLabel for="@next" value="Date" />
+                <p:datePicker id="navigator" value="#{inputFieldsdataBean.date}" monthNavigator="true"
+                    yearNavigator="true" showWeek="true" />
+            </div>
+            <div class="field col-12 md:col-6">
+                <p:outputLabel for="@next" value="Radio horizontal" />
+                <p:selectOneRadio id="radioline" value="#{inputFieldsdataBean.radioLine}" layout="lineDirection">
+                    <f:selectItem itemLabel="Option1" itemValue="opt 1" />
+                    <f:selectItem itemLabel="Option2" itemValue="opt 2" />
+                    <f:selectItem itemLabel="Option3" itemValue="opt 3" />
+                </p:selectOneRadio>
+            </div>
+            <div class="field col-12 md:col-6">
+                <p:outputLabel for="@next" value="Radio vertical" />
+                <p:selectOneRadio id="radiopage" value="#{inputFieldsdataBean.radioPage}" layout="pageDirection">
+                    <f:selectItem itemLabel="PageOption1" itemValue="pageopt 1" />
+                    <f:selectItem itemLabel="PageOption2" itemValue="pageopt 2" />
+                    <f:selectItem itemLabel="PageOption3" itemValue="pageopt 3" />
+                </p:selectOneRadio>
+            </div>
+            <div class="field col-12 md:col-6">
+                <p:outputLabel for="@next" value="Boolean checkbox" />&#160;
+                <p:selectBooleanCheckbox id="bcheckbox" value="#{inputFieldsdataBean.selectBooleanCheckbox}" />
+            </div>
+            <div class="field col-12 md:col-6">
+                <p:outputLabel for="@next" value="Select one menu" />
+                <p:selectOneMenu id="onemenu" value="#{inputFieldsdataBean.selectOneMenu}">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItem itemLabel="Germany" itemValue="DE" />
+                    <f:selectItem itemLabel="France" itemValue="FR" />
+                    <f:selectItem itemLabel="Austria" itemValue="AT" />
+                </p:selectOneMenu>
+            </div>
+            <div class="field col-12 md:col-6">
+                <p:outputLabel for="@next" value="Select many checkbox" />
+                <p:selectManyCheckbox id="manycheckbox" value="#{inputFieldsdataBean.selectManyCheckbox}"
+                    layout="responsive" columns="2">
+                    <f:selectItem itemLabel="Germany" itemValue="DE" />
+                    <f:selectItem itemLabel="France" itemValue="FR" />
+                    <f:selectItem itemLabel="Austria" itemValue="AT" />
+                    <f:selectItem itemLabel="Netherlands" itemValue="NL" />
+                    <f:selectItem itemLabel="Belgium" itemValue="BE" />
+                </p:selectManyCheckbox>
+            </div>
+            <div class="field col-12 md:col-6">
+                <p:selectCheckboxMenu id="menu" filter="true" filterMatchMode="startsWith" label="Countries"
+                    style="width: 15rem" panelStyle="width: 15rem" scrollHeight="250"
+                    value="#{inputFieldsdataBean.selectCheckboxMenu}">
+                    <f:selectItems value="#{inputFieldsdataBean.countries}" var="country" itemLabel="#{country}"
+                        itemValue="#{country}" />
+                </p:selectCheckboxMenu>
+            </div>
+        </div>
+        <p:commandButton value="Save" action="/inputFields/showFields.xhtml" ajax="false" />
+    </h:form>
+</h:body>
+
+</html>

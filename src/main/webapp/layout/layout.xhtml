@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>
+            <h:outputText value="Layout"/>
+        </title>
+        <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+    </h:head>
+    <h:body>
+        <h2>Several Columns in a Row</h2>      
+        <div class="grid">
+            <div class="col-3 bg-blue-500 text-white">Element 1</div>
+            <div class="col-3 bg-green-500 text-white">Element 2</div>
+            <div class="col-6 bg-blue-500 text-white">Element 3</div>
+        </div>
+        <h2>Several Columns in two Rows</h2>
+        <div class="grid">
+            <div class="col-3 bg-blue-500 text-white">Element 1</div>
+            <div class="col-3 bg-green-500 text-white">Element 2</div>
+        </div>
+        <div class="grid">
+            <div class="col-3 bg-green-500 text-white">Element 3</div>
+            <div class="col-3 bg-blue-500 text-white">Element 4</div>
+        </div>
+        <h2>Responsive Several Columns in two Rows</h2>
+        <div class="grid">
+            <div class="col-3 bg-blue-500 text-white">Element 1</div>
+            <div class="col-3 bg-green-500 text-white">Element 2</div>
+        </div>
+        <div class="grid">
+            <div class="col-12 md:col-6 bg-green-500 text-white">Element 3</div>
+            <div class="col-12 md:col-6 bg-blue-500 text-white">Element 4</div>
+        </div>
+        <br/>
+        <h:outputLink value="/index.xhtml">
+            <h:outputText value="Back to start page"/>
+        </h:outputLink>
+    </h:body>
+</html>

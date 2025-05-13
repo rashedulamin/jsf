@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>
+        <h:outputText value="#{msgs.title_main}" />
+    </title>
+    <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+</h:head>
+<h:body>
+    <h:form id="form">
+        <f:view locale="#{localisationLocale.locale}">
+            <ui:include src="language.xhtml" />
+            <h2>
+                <h:outputText value="#{msgs.title_edit_person}" />
+            </h2>
+            <p:messages globalOnly="true"/>
+            <div class="ui-fluid grid">
+                <div class="field col-12">
+                    <p:outputLabel for="@next" value="#{msgs.first_name}" />
+                    <p:inputText id="firstName" value="#{localisationPersonBean.firstName}" required="true"
+                        requiredMessage="#{msgs.first_name_validation}"
+                        validatorMessage="#{msgs.first_name_validation}">
+                        <f:validateLength minimum="3" maximum="8" />
+                        <f:validateRegex pattern="[A-Z][a-zA-Z]*" />
+                    </p:inputText>
+                    <p:message for="form:firstName" />
+                </div>
+                <div class="field col-12">
+                    <p:outputLabel for="@next" value="#{msgs.last_name}" />
+                    <p:inputText id="lastName" value="#{localisationPersonBean.lastName}" required="true"
+                        requiredMessage="#{msgs.last_name_validation}">
+                    </p:inputText>
+                    <p:message for="form:lastName" />
+                </div>
+                <div class="field col-12">
+                    <p:outputLabel for="@next" value="#{msgs.date}" />
+                    <p:datePicker id="date" value="#{localisationPersonBean.date}" monthNavigator="true"
+                        yearNavigator="true" required="true" requiredMessage="#{msgs.date_validation}"
+                        validator="#{localisationPersonBean.validateDate}">
+                    </p:datePicker>
+                    <p:message for="form:date" />
+                </div>
+            </div>
+            <p:commandButton value="#{msgs.save}" action="/localisation/showPerson.xhtml" ajax="false" />
+        </f:view>
+    </h:form>
+</h:body>
+</html>

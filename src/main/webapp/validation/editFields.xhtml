@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>
+        <h:outputText value="Validation" />
+    </title>
+    <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+</h:head>
+<h:body>
+    <h2>
+        <h:outputText value="Validation" />
+    </h2>
+    <p:messages globalOnly="true" />
+    <h:form id="form">
+        <div class="ui-fluid grid">
+            <div class="field col-12">
+                <p:outputLabel for="@next" value="Text" />
+                <p:inputText id="text" value="#{validationdataBean.text}" required="true" requiredMessage="Enter a text"
+                    validatorMessage="Text must consist of 3 to 7 letters starting with upper case letter">
+                    <f:validateLength minimum="3" maximum="8" />
+                    <f:validateRegex pattern="[A-Z][a-zA-Z]*" />
+                </p:inputText>
+                <p:message for="form:text" />
+            </div>
+            <div class="field col-12">
+                <p:outputLabel for="@next" value="Number" />
+                <p:inputNumber id="number" value="#{validationdataBean.number}" required="true"
+                    requiredMessage="Enter a number" validatorMessage="Number must be between 10 and 1000">
+                    <f:validateLongRange minimum="10" maximum="1000" />
+                </p:inputNumber>
+                <p:message for="form:number" />
+            </div>
+            <div class="field col-12">
+                <p:outputLabel for="@next" value="Date" />
+                <p:datePicker id="date" value="#{validationdataBean.date}" monthNavigator="true" yearNavigator="true"
+                    showWeek="true" required="true" requiredMessage="Enter a date"
+                    validator="#{validationdataBean.validateDate}" />
+                <p:message for="form:date" />
+            </div>
+            <div class="field col-12">
+                <p:outputLabel for="@next" value="CC Type" />
+                <p:selectOneMenu id="onemenu" value="#{validationdataBean.ccType}"
+                    binding="#{validationdataBean.creditCardTypeInput}">
+                    <f:selectItem itemLabel="Type A" itemValue="Type A" />
+                    <f:selectItem itemLabel="Type B" itemValue="Type B" />
+                </p:selectOneMenu>
+            </div>
+            <div class="field col-12">
+                <p:outputLabel for="@next" value="CC Number" />
+                <p:inputText id="ccnumber" value="#{validationdataBean.ccNumber}" required="true"
+                    requiredMessage="Enter a credit card number" validator="#{validationdataBean.validateCreditCard}">
+                </p:inputText>
+                <p:message for="form:ccnumber" />
+            </div>
+        </div>
+        <p:commandButton value="Save" action="/validation/showFields.xhtml" ajax="false" />
+    </h:form>
+</h:body>
+
+</html>

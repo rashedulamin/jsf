@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:decorate template="/templates/sideBox.xhtml">
+        <ui:param name="title" value="Menu"/>
+        <h:form id="menu">
+            <h:panelGrid columns="1">
+                <h:commandLink action="/templates/showCustomer.xhtml">
+                    Show Customer
+                </h:commandLink>
+                <h:commandLink action="/templates/showAddresses.xhtml">
+                    Show Addresses
+                </h:commandLink>
+                <h:outputLink value="/index.xhtml">
+                    <h:outputText value="Back to start page"/>
+                </h:outputLink>        
+            </h:panelGrid>
+        </h:form>
+    </ui:decorate>
+    <ui:decorate template="/templates/sideBox.xhtml">
+        <ui:param name="title" value="News"/>
+        <p>This is news for all customers</p>
+    </ui:decorate>
+</ui:composition>

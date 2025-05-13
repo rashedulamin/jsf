@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>
+        <h:outputText value="Input fields" />
+    </title>
+    <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+</h:head>
+<h:body>
+    <h2>
+        <h:outputText value="Show input fields" />
+    </h2>
+    <p:panelGrid columns="2" layout="grid" columnClasses="col-12 md:col-3, col-12 md:col-9">
+        <h:outputText value="Text" />
+        <h:outputText value="#{inputFieldsdataBean.text}" />
+        <h:outputText value="Number" />
+        <h:outputText value="#{inputFieldsdataBean.number}" />
+        <h:outputText value="Password" />
+        <h:outputText value="#{inputFieldsdataBean.password}" />
+        <h:outputText value="Date" />
+        <h:outputText value="#{inputFieldsdataBean.date}" />
+        <h:outputText value="Radio horizontal" />
+        <h:outputText value="#{inputFieldsdataBean.radioLine}" />
+        <h:outputText value="Radio vertical" />
+        <h:outputText value="#{inputFieldsdataBean.radioPage}" />
+        <h:outputText value="Boolean checkbox" />
+        <h:outputText value="#{inputFieldsdataBean.selectBooleanCheckbox}" />
+        <h:outputText value="Select one menu" />
+        <h:outputText value="#{inputFieldsdataBean.selectOneMenu}" />
+        <h:outputText value="Select many checkbox" />
+        <h:outputText value="#{inputFieldsdataBean.selectManyCheckboxAsString}" />
+        <h:outputText value="Countries" />
+        <h:outputText value="#{inputFieldsdataBean.selectCheckboxMenuAsString}" />
+    </p:panelGrid>
+    <br/>
+    <h:outputLink value="/index.xhtml">
+        <h:outputText value="Back to start page" />
+    </h:outputLink>
+</h:body>
+
+</html>
